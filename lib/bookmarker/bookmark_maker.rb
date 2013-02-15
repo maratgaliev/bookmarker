@@ -14,11 +14,7 @@ module Bookmarker
 
         validates_uniqueness_of :bookmark
 
-        has_many :bookmarks, :class_name => "Bookmarker::Bookmark", :as => :bookmark_maker do
-          def bookmarkables
-            includes(:bookmarkable).map(&:bookmarkable)
-          end
-        end
+        has_many :bookmarks, :class_name => "Bookmarker::Bookmark", :as => :bookmark_maker
 
         aliases.each do |method, links|
           links.each do |new_method|
@@ -33,9 +29,9 @@ module Bookmarker
       bookmark = Bookmarker::Bookmark.new( :bookmarkable => bookmarkable, :bookmark_maker => self)
 
       if bookmark.save
-        return true
+        true
       else
-        return false
+        false
       end
 
     end
@@ -45,11 +41,12 @@ module Bookmarker
     end
 
     def unbookmark bookmarkable
-      return false if bookmarkable.nil?
-        bookmark = self.bookmarks.where(:bookmarkable_id => bookmarkable.id, :bookmarkable_type => bookmarkable.class.name.to_s)
-        puts bookmark
-        #bookmark.destroy
-      return true
+      bookmark = self.bookmarks.where(:bookmarkable_id => bookmarkable.id, :bookmarkable_type => bookmarkable.class.name.to_s).first        
+      if bookmark.destroy
+        true
+      else
+        false
+      end     
     end
 
 

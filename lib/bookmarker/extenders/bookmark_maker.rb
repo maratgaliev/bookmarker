@@ -1,6 +1,5 @@
 module Bookmarker
   module Extenders
-
     module BookmarkMaker
 
       def bookmark_maker?
@@ -16,9 +15,8 @@ module Bookmarker
             true
           end
         end
-
       end
-
+      
     end
   end
 end

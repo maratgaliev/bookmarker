@@ -1,6 +1,5 @@
 module Bookmarker
   module Extenders
-
     module Bookmarkable
 
       def bookmarkable?
@@ -11,16 +10,13 @@ module Bookmarker
       def is_bookmarkable
         require 'bookmarker/bookmarkable'
         include Bookmarker::Bookmarkable
-
         class_eval do
           def self.bookmarkable?
             true
           end
         end
-
       end
 
     end
-
   end
 end

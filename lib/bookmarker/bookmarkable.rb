@@ -8,18 +8,14 @@ module Bookmarker
     def self.included base
        base.class_eval do
          belongs_to :bookmarkable, :polymorphic => true
-         has_many   :bookmarks, :class_name => "Bookmarker::Bookmark", :as => :bookmarkable do
-           def bookmark_makers
-             includes(:bookmark_maker).map(&:bookmark_maker)
-           end
-         end
+         has_many   :bookmarks, :class_name => "Bookmarker::Bookmark", :as => :bookmarkable
        end
     end
 
     def default_conditions
        {
          :bookmarkable_id => self.id,
-         :bookmarkable_type => self.class.base_class.name.to_s
+         :bookmarkable_type => self.class.name.to_s
        }
     end
 
