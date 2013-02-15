@@ -36,8 +36,12 @@ module Bookmarker
 
     end
 
-    def find_bookmarks extra_conditions = {}
-      bookmarks.where(extra_conditions)
+    def find_bookmarks bookmarkable_model
+      bookmarks.where(:bookmarkable_type => bookmarkable_model.base_class.name.to_s)
+    end
+
+    def remove_bookmarks
+      bookmarks.delete_all
     end
 
     def unbookmark bookmarkable
