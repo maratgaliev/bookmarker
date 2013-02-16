@@ -1,4 +1,6 @@
-== bookmarker
+bookmarker
+=======================
+
 Add bookmarks to your models.
 
 * Add gem "bookmarker" to your Gemfile
