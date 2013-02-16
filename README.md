@@ -3,7 +3,7 @@ bookmarker
 
 Add bookmarks to your models.
 
-1) Add gem "bookmarker", "~> 0.0.1" to your Gemfile
+1) Add gem "bookmarker" to your Gemfile
 
 2) Run generator: rails g bookmaker:install and rake db:migrate
 
