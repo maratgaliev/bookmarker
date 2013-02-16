@@ -15,7 +15,7 @@ module Bookmarker
     def default_conditions
        {
          :bookmarkable_id => self.id,
-         :bookmarkable_type => self.base_class.name.to_s
+         :bookmarkable_type => self.class.base_class.name.to_s
        }
     end
 

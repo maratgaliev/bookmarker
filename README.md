@@ -11,6 +11,8 @@ Add bookmarks to your models.
 
 4) Add is_bookmark_maker to your bookmark maker model (for example User)
 
-5) Use @user.add_bookmark @company or @user.unbookmark @company
+5) Use @user.add_bookmark(@company, 'My bookmark description') or @user.unbookmark @company
 
 6) Use @user.bookmarks for list of added bookmarks
+
+7) Available methods: remove_bookmarks - delete all model bookmarks, find_bookmarks(Your class here, for ex. Company) - find bookmarks linked with specific class.

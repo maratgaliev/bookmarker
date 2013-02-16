@@ -24,20 +24,13 @@ module Bookmarker
       end
     end
 
-    def add_bookmark bookmarkable
-
-      bookmark = Bookmarker::Bookmark.new( :bookmarkable => bookmarkable, :bookmark_maker => self)
-
-      if bookmark.save
-        true
-      else
-        false
-      end
-
+    def add_bookmark bookmarkable, description = nil
+      bookmark = Bookmarker::Bookmark.new( :bookmarkable => bookmarkable, :bookmark_maker => self, :description => description)
+      bookmark.save ? true : false
     end
 
     def find_bookmarks bookmarkable_model
-      bookmarks.where(:bookmarkable_type => bookmarkable_model.base_class.name.to_s)
+      bookmarks.where(:bookmarkable_type => bookmarkable_model.base_class.name)
     end
 
     def remove_bookmarks
@@ -45,14 +38,9 @@ module Bookmarker
     end
 
     def unbookmark bookmarkable
-      bookmark = self.bookmarks.where(:bookmarkable_id => bookmarkable.id, :bookmarkable_type => bookmarkable.class.name.to_s).first        
-      if bookmark.destroy
-        true
-      else
-        false
-      end     
+      bookmark = self.bookmarks.where(:bookmarkable_id => bookmarkable.id, :bookmarkable_type => bookmarkable.class.name).first        
+      bookmark.destroy ? true : false
     end
-
 
   end
 end

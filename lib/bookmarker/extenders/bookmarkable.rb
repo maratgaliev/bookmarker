@@ -5,7 +5,6 @@ module Bookmarker
       def bookmarkable?
         false
       end
-
       
       def is_bookmarkable
         require 'bookmarker/bookmarkable'
