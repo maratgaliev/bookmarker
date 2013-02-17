@@ -13,4 +13,4 @@ Add bookmarks to your models.
 
 * Use @user.bookmarks for list of added bookmarks
 
-* Available methods: remove_bookmarks - delete all model bookmarks, find_bookmarks(Your class here, for ex. Company) - find bookmarks linked with specific class.
+* Available methods: remove_bookmarks - delete all model bookmarks, find_bookmarks(Your class here, for ex. Company) - find bookmarks linked with specific class, has_in_bookmarks?(bookmarkable_instance)
