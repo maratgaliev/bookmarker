@@ -37,10 +37,18 @@ module Bookmarker
       bookmarks.delete_all
     end
 
+    def find_by_instance bookmarkable
+      bookmarks.where(:bookmarkable_id => bookmarkable.id, :bookmarkable_type => bookmarkable.class.name)
+    end
+
     def unbookmark bookmarkable
-      bookmark = self.bookmarks.where(:bookmarkable_id => bookmarkable.id, :bookmarkable_type => bookmarkable.class.name).first        
+      bookmark = find_by_instance(bookmarkable).first        
       bookmark.destroy ? true : false
     end
 
+    def has_in_bookmarks? bookmarkable_instance
+      find_by_instance(bookmarkable_instance)
+      bookmarks.size > 0
+    end
   end
 end
