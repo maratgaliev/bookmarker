@@ -3,7 +3,7 @@ Add bookmarks to your models.
 
 * Add gem "bookmarker" to your Gemfile
 
-* Run generator: rails g bookmaker:install and rake db:migrate
+* Run generator: rails g bookmarker:install and rake db:migrate
 
 * Add is_bookmarkable to your bookmarkable model (for example Company)
 

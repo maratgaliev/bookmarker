@@ -47,7 +47,7 @@ module Bookmarker
     end
 
     def has_in_bookmarks? bookmarkable_instance
-      find_by_instance(bookmarkable_instance)
+      bookmarks = find_by_instance(bookmarkable_instance)
       bookmarks.size > 0
     end
   end
