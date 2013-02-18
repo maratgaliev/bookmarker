@@ -7,8 +7,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 module Bookmarker
   if defined?(ActiveRecord::Base)
   	require "bookmarker/engine"
-	require "bookmarker/version"
-	require "bookmarker/engine"
+	  require "bookmarker/version"
+	  require "bookmarker/engine"
     require 'bookmarker/extenders/bookmarkable'
     require 'bookmarker/extenders/bookmark_maker'
     require 'bookmarker/bookmark'

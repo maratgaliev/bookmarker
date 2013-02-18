@@ -12,8 +12,6 @@ module Bookmarker
 
         belongs_to :bookmark_maker, :polymorphic => true
 
-        validates_uniqueness_of :bookmark
-
         has_many :bookmarks, :class_name => "Bookmarker::Bookmark", :as => :bookmark_maker
 
         aliases.each do |method, links|
