@@ -1,9 +1,9 @@
 module Bookmarker
   class Bookmark < ::ActiveRecord::Base
 
-    attr_accessible :bookmarkable_id, :bookmarkable_type,
-      :bookmark_maker_id, :bookmark_maker_type,
-      :bookmarkable, :bookmark_maker, :description
+    # attr_accessible :bookmarkable_id, :bookmarkable_type,
+    #   :bookmark_maker_id, :bookmark_maker_type,
+    #   :bookmarkable, :bookmark_maker, :description
 
     belongs_to :bookmarkable, :polymorphic => true
     belongs_to :bookmark_maker, :polymorphic => true
